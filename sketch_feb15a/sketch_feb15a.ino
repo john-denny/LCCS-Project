@@ -1,5 +1,5 @@
 // Define PIR sensor pin
-const int pirSensorPin = 10; // Change this if you connected the sensor to a different pin
+const int pirSensorPin = 8; // Change this if you connected the sensor to a different pin
 
 void setup() {
   // Initialize serial communication

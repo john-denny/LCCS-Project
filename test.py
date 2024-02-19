@@ -2,22 +2,32 @@ import serial
 import time
 import threading
 
+global score
+global shots
+score = shots = 0
+
+
 def read_arduino():
     while True:
         arduino_line = arduino_ser.readline().decode('utf-8').strip()
         if "1" in arduino_line:
             print("ARDUINO COMMS: ", arduino_line)
-            # Your logic for Arduino data goes here
+            global score
+            score += 1
+            time.sleep(1)
 
 def read_microbit():
     while True:
         microbit_line = microbit_ser.readline().decode('utf-8').strip()
         if "1" in microbit_line:
             print("MICROBIT COMMS: ", microbit_line)
+            global shots
+            shots += 1
+            time.sleep(1)
             # Your logic for Microbit data goes here
 
 # Set the serial port and baud rate
-arduino_serial_port = 'COM6'
+arduino_serial_port = 'COM4'
 arduino_baud_rate = 9600
 
 microbit_serial_port = 'COM7'
@@ -41,6 +51,7 @@ try:
         time.sleep(1)
 
 except KeyboardInterrupt:
+    print(f"Shots taken: {shots} \nMade: {score}")
     print("Exiting...")
 
 finally:

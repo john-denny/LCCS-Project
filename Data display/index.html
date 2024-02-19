@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 2%;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        .data-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2%;
+        }
+
+        .data-item {
+            background-color: #fff;
+            padding: 5%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-label {
+            font-size: 2.5em;
+            color: #555;
+        }
+
+        .data-value {
+            font-size: 5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .last-shots-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .last-shots-container h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .last-shot {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: inline;
+        }
+
+        .made {
+            color: #2ecc71;
+            /* Green for made shots */
+        }
+
+        .missed {
+            color: #e74c3c;
+            /* Red for missed shots */
+        }
+    </style>
+    <title>Shot Statistics</title>
+</head>
+
+<body>
+    <h1>🏀 Player Shot Tracker 🏀</h1>
+
+    <div class="data-container">
+        <div class="data-item">
+            <div class="data-label">Shots Taken</div>
+            <div class="data-value">150</div>
+        </div>
+        <div class="data-item">
+            <div class="data-label">Shots Made</div>
+            <div class="data-value">75</div>
+        </div>
+        <div class="data-item">
+            <div class="data-label">Shot Percentage</div>
+            <div class="data-value">50%</div>
+        </div>
+    </div>
+
+    <div class="last-shots-container">
+        <h2>Last 5 Shots</h2>
+        <div class="last-shot made">✅</div>
+        <div class="last-shot missed">❌</div>
+        <div class="last-shot made">✅</div>
+        <div class="last-shot made">❌</div>
+        <div class="last-shot missed">✅</div>
+    </div>
+</body>
+
+</html>
