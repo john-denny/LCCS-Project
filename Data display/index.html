@@ -80,26 +80,61 @@
     <div class="data-container">
         <div class="data-item">
             <div class="data-label">Shots Taken</div>
-            <div class="data-value">150</div>
+            <div class="data-value" id="shotsTaken">150</div>
         </div>
         <div class="data-item">
             <div class="data-label">Shots Made</div>
-            <div class="data-value">75</div>
+            <div class="data-value" id="shotsMade">75</div>
         </div>
         <div class="data-item">
             <div class="data-label">Shot Percentage</div>
-            <div class="data-value">50%</div>
+            <div class="data-value" id="shotPercentage">50%</div>
         </div>
     </div>
 
-    <div class="last-shots-container">
+    <div class="last-shots-container" id="lastShotsContainer">
         <h2>Last 5 Shots</h2>
-        <div class="last-shot made">✅</div>
-        <div class="last-shot missed">❌</div>
-        <div class="last-shot made">✅</div>
-        <div class="last-shot made">❌</div>
-        <div class="last-shot missed">✅</div>
+        <!-- Dynamic content will be added here -->
     </div>
+
+    <script>
+        // Function to fetch data from the API
+        async function fetchData() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/shots');
+                const data = await response.json();
+                console.log(data)
+                return data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Function to update the page with fetched data
+        async function updatePage() {
+            const data = await fetchData();
+
+            // Update the main statistics
+            document.getElementById('shotsTaken').textContent = data.shotsTaken;
+            document.getElementById('shotsMade').textContent = data.shotsMade;
+            document.getElementById('shotPercentage').textContent = `${data.shotPercentage}%`;
+
+            // Update the last 5 shots section
+            const lastShotsContainer = document.getElementById('lastShotsContainer');
+            lastShotsContainer.innerHTML = '<h2>Last 5 Shots</h2>';
+            data.lastShots.forEach((shot, index) => {
+                const shotElement = document.createElement('div');
+                shotElement.classList.add('last-shot');
+                shotElement.textContent = (shot.result === 'made') ? '✅' : '❌';
+                shotElement.classList.add(shot.result.toLowerCase()); // Add appropriate class for styling
+                lastShotsContainer.appendChild(shotElement);
+            });
+        }
+
+        // Update the page initially and set interval for real-time updates
+        updatePage();
+        setInterval(updatePage, 5000); // Update every 5 seconds (adjust as needed)
+    </script>
 </body>
 
 </html>
