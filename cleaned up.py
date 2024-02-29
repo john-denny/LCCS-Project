@@ -1,8 +1,9 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS  
 import serial
 import time
 import threading
+from datetime import datetime
 
 
 global score, shots, last_5_shots
@@ -11,7 +12,7 @@ score = shots = 0
 last_5_shots = []
 
 # Set the serial port and baud rate
-ARDUINO_SERIAL_PORT = 'COM4'
+ARDUINO_SERIAL_PORT = 'COM6'
 MICROBIT_SERIAL_PORT = 'COM7'
 MICROBIT_BAUD_RATE = 115200
 ARDUINO_BAUD_RATE = 9600
@@ -77,6 +78,31 @@ def get_updated_data():
 @app.route('/api/shots', methods=['GET'])
 def get_shot_statistics():
     return jsonify(get_updated_data())
+
+@app.route('/api/username_happiness', methods=['POST'])
+def store_username_happiness():
+    data = request.get_json()
+
+    with open("shooting_happiness.csv","a") as logfile:
+        logfile.write(f"{data['username']}, {data['happiness']}, {datetime.now().strftime('%Y-%m-%d %H:%M')}, ")
+    # Return a response, for example, a JSON response
+    return '👍'
+
+@app.route('/api/end_log', methods=['POST'])
+def store_happiness_after():
+    global shots, score, last_5_shots
+    data = request.get_json()
+
+
+    with open("shooting_happiness.csv","a") as logfile:
+        logfile.write(f"{data['happiness']}, {shots}, {score}, {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
+    # Reset the results
+    shots = score = 0
+    last_5_shots = []
+    return '👍'
+
+
+
 
 if __name__ == '__main__':
     try:

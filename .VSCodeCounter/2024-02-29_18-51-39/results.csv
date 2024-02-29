@@ -1,0 +1,16 @@
+"filename", "language", "HTML", "Python", "CSV", "C++", "Markdown", "comment", "blank", "total"
+"c:\Users\John\Coding\LCCS Project\Advanced Requirements\Life expectancy.csv", "CSV", 0, 0, 143, 0, 0, 0, 0, 143
+"c:\Users\John\Coding\LCCS Project\Advanced Requirements\Life_expectancy_dataset.csv", "CSV", 0, 0, 224, 0, 0, 0, 1, 225
+"c:\Users\John\Coding\LCCS Project\Advanced Requirements\Notes.md", "Markdown", 0, 0, 0, 0, 2, 0, 1, 3
+"c:\Users\John\Coding\LCCS Project\Advanced Requirements\Suicide Rate.csv", "CSV", 0, 0, 141, 0, 0, 0, 0, 141
+"c:\Users\John\Coding\LCCS Project\Advanced Requirements\main.py", "Python", 0, 31, 0, 0, 0, 0, 6, 37
+"c:\Users\John\Coding\LCCS Project\Archive\michaelbit.py", "Python", 0, 9, 0, 0, 0, 5, 2, 16
+"c:\Users\John\Coding\LCCS Project\Archive\sensor.py", "Python", 0, 41, 0, 0, 0, 7, 14, 62
+"c:\Users\John\Coding\LCCS Project\Archive\server.py", "Python", 0, 22, 0, 0, 0, 2, 8, 32
+"c:\Users\John\Coding\LCCS Project\Arduino Code\sketch_feb15a.ino", "C++", 0, 0, 0, 10, 0, 7, 5, 22
+"c:\Users\John\Coding\LCCS Project\cleaned up.py", "Python", 0, 82, 0, 0, 0, 11, 33, 126
+"c:\Users\John\Coding\LCCS Project\display.html", "HTML", 119, 0, 0, 0, 0, 1, 20, 140
+"c:\Users\John\Coding\LCCS Project\ending.html", "HTML", 77, 0, 0, 0, 0, 0, 23, 100
+"c:\Users\John\Coding\LCCS Project\index.html", "HTML", 81, 0, 0, 0, 0, 0, 22, 103
+"c:\Users\John\Coding\LCCS Project\shooting_happiness.csv", "CSV", 0, 0, 1, 0, 0, 0, 1, 2
+"Total", "-", 277, 185, 509, 10, 2, 33, 136, 1152

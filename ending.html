@@ -55,11 +55,9 @@
 </style>
 
 <body>
-    <h1>Pre Shooting Happiness Request</h1>
+    <h1>Post Shooting Happiness Request</h1>
     <div class="data-item">
-        <form action="./display.html" method="post" id="happiness_form">
-            <h4>Username</h4>
-            <input type="text" id="username" required>
+        <form action="./index.html" method="post" id="happiness_form">
             <h4>How Happy Are You Currently?</h4>
             <input type="radio" id="Happy" name="current_mood" value="Happy" required>
             <label for="Happy">😃</label>
@@ -83,19 +81,16 @@
 <script>
     function submitForm() {
         // Get form data
-        const formData = new FormData(document.getElementById('happiness_form'));
-        var username = document.getElementById('username').value;
         var happiness = document.querySelector('input[name="current_mood"]:checked').value;
 
 
         // Make the POST request    
-        fetch('http://127.0.0.1:5000/api/username_happiness', {
+        fetch('http://127.0.0.1:5000/api/end_log', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: username,
                 happiness: happiness
             })
         })
