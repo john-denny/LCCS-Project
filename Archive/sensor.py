@@ -6,6 +6,17 @@ global score
 global shots
 score = shots = 0
 
+# Set the serial port and baud rate
+arduino_serial_port = 'COM4'
+arduino_baud_rate = 9600
+
+microbit_serial_port = 'COM7'
+microbit_baud_rate = 115200
+
+# Open the serial port
+arduino_ser = serial.Serial(arduino_serial_port, arduino_baud_rate, timeout=1)
+microbit_ser = serial.Serial(microbit_serial_port, microbit_baud_rate, timeout=1)
+
 
 def read_arduino():
     while True:
@@ -26,16 +37,6 @@ def read_microbit():
             time.sleep(1)
             # Your logic for Microbit data goes here
 
-# Set the serial port and baud rate
-arduino_serial_port = 'COM4'
-arduino_baud_rate = 9600
-
-microbit_serial_port = 'COM7'
-microbit_baud_rate = 9600
-
-# Open the serial port
-arduino_ser = serial.Serial(arduino_serial_port, arduino_baud_rate, timeout=1)
-microbit_ser = serial.Serial(microbit_serial_port, microbit_baud_rate, timeout=1)
 
 try:
     # Create threads for reading data

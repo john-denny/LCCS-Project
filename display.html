@@ -80,15 +80,15 @@
     <div class="data-container">
         <div class="data-item">
             <div class="data-label">Shots Taken</div>
-            <div class="data-value" id="shotsTaken">150</div>
+            <div class="data-value" id="shotsTaken">0</div>
         </div>
         <div class="data-item">
             <div class="data-label">Shots Made</div>
-            <div class="data-value" id="shotsMade">75</div>
+            <div class="data-value" id="shotsMade">0</div>
         </div>
         <div class="data-item">
             <div class="data-label">Shot Percentage</div>
-            <div class="data-value" id="shotPercentage">50%</div>
+            <div class="data-value" id="shotPercentage">0%</div>
         </div>
     </div>
 
@@ -126,14 +126,14 @@
                 const shotElement = document.createElement('div');
                 shotElement.classList.add('last-shot');
                 shotElement.textContent = (shot.result === 'made') ? '✅' : '❌';
-                shotElement.classList.add(shot.result.toLowerCase()); // Add appropriate class for styling
+                shotElement.classList.add(shot.result.toLowerCase());
                 lastShotsContainer.appendChild(shotElement);
             });
         }
 
         // Update the page initially and set interval for real-time updates
         updatePage();
-        setInterval(updatePage, 5000); // Update every 5 seconds (adjust as needed)
+        setInterval(updatePage, 2000); // Update every 5 seconds (adjust as needed)
     </script>
 </body>
 

@@ -17,5 +17,5 @@ void loop() {
   // Print the PIR sensor state to the serial monitor
   Serial.println(pirState);
   // Add a short delay to avoid flooding the serial monitor
-  delay(100);
+  delay(4000);
 }
