@@ -1,2 +1,3 @@
-name, pre_happiness, start_time, post_happiness, shots, shots_scored, datetime
+Name, Happiness Before, Start Time, Happiness After, Shots Taken, Shots Scored, End Time
 John, OK, 2024-02-29 19:01, Happy, 3, 3, 2024-02-29 19:01
+John Madden, Sad, 2024-02-29 21:04, Happy, 1, 4, 2024-02-29 21:06

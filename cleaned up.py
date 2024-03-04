@@ -54,18 +54,14 @@ def read_microbit():
             # Ensure we only deal with the last 5 shots
             if len(last_5_shots) > 5:
                 list.pop()
-            
-            
+                
 
 
-# Dummy shot data for demonstration
 def get_updated_data():
     global shots, score,last_5_shots
     shots_taken = shots
     shots_made = score
     shot_percentage = (shots_made / shots_taken) * 100 if shots_taken > 0 else 0
-
-    
 
     return {
         "shotsTaken": shots_taken,
