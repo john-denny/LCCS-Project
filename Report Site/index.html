@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Shot Tracker</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .progress-log-container {
+            height: 10%;
+            /* Set the desired height for the container */
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+            border: 1px solid #ccc;
+            /* Add a border for visual clarity */
+            border-radius: 8px;
+            /* Add rounded corners for a softer look */
+            padding: 10px;
+            /* Add padding for spacing */
+            margin-top: 20px;
+            /* Add margin at the top for separation */
+        }
+
+        .progress-log {
+            display: flex;
+            flex-direction: row;
+            gap: 3%;
+        }
+
+        .progress-item {
+            min-width: 200px;
+            border: 1px solid #ccc;
+            padding: 20px;
+
+            border-radius: 8px;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            /* Light gray background color */
+        }
+
+        /* Add your custom styles here */
+        .main-container {
+            background-color: #fff;
+            /* White background color for the main content */
+            border-radius: 8px;
+            /* Add rounded corners for a softer look */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow for depth */
+            padding: 20px;
+            /* Add padding for spacing */
+            margin-top: 20px;
+            /* Add margin at the top for separation */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="px-4 py-5 my-5 text-center bg-light shadow" id="top-of-page">
+        <p style="font-size: 5em;">🏀</p>
+        <h1 class="display-5 fw-bold">Basketball Tracker</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Improving users well-being in the best way possible, Basketball!</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" onclick="document.getElementById('mainbody').scrollIntoView();"
+                    class="btn btn-primary btn-lg px-4 gap-3">See How</button>
+            </div>
+        </div>
+    </div>
+    <div class="text-center container main-container">
+        <h1 class=" fw-bold">The Video</h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=OdA_ssHzvgKFMWII"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+    </div>
+    <div class="container main-container" id="mainbody">
+        <h1 class="text-center fw-bold">Meeting the Brief</h1>
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+            <h2>Basic Requirements</h2>
+            <ul>
+                <li>The system is fully automated once it receives data from the user, and all redirects are done
+                    without
+                    user intervention as is sensor data recording.</li>
+                <li>The system uses both digital inputs and outputs as well as analogue inputs and outputs.</li>
+                <h3>Inputs</h3>
+                <ul>
+                    <li><strong>Analogue</strong> - PIR Sensor which detects movement of the basketball under the rim.
+                        This
+                        will serve to
+                        keep track of the score</li>
+                    <li><strong>Digital</strong> - Within the User Interface which will track user happiness, the user
+                        enters their name and
+                        their current happiness</li>
+                </ul>
+                <h3>Outputs</h3>
+                <ul>
+                    <li><strong>Analogue</strong> - The Micro:Bit Beeps when a shot is detected.</li>
+                    <li><strong>Digital</strong> - The user’s shot data is displayed live on the user interface.</li>
+                </ul>
+                <li><strong>Validate the data</strong>
+                    <ul>
+                        <li>The data is validated in numerous places, firstly when the user enters their name it is
+                            ensured
+                            that there isn’t nothing entered in the space.</li>
+                        <li>There is also a break between shot detections so a single shot doesn’t register multiple
+                            times.
+                        </li>
+                    </ul>
+                </li>
+                <li><strong>My 2 What Ifs? were </strong>
+                    <ul>
+                        <li>What if the user shoots more, will their aim improve?</li>
+                        <li>What if a user exercises, will it improve their mood before versus after?</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Advanced Requirements</h2>
+            <ul>
+                <li>The model I generated based on the user’s data is a Linear Regression based model which constructs a
+                    line of best fit to predict the user’s wellbeing based on the what if questions</li>
+                <li>The multiple descriptive features of wellbeing used included, duration which the user plays for,
+                    their
+                    mood before, mood after and shooting accuracy.</li>
+                <h3>Responses to the What If questions</h3>
+                <ul>
+                    <li><strong>What if the user shoots more, will their aim improve?</strong>
+                        <p>As users shoot, their aim improves, this doesn’t necessarily improve each time, but overall,
+                            the
+                            users aim improves with each use. This is proven by the linear regression plot shown below.
+                        </p>
+                        <!-- You can add the linear regression plot here -->
+                    </li>
+                    <li><strong>What if a user exercises, will it improve their mood before versus after?</strong>
+                        <p>To model this I asked the users happiness before and after they exercised. I then graphed the
+                            5
+                            most common results of happiness before vs after. These can be seen below.</p>
+                        <!-- You can add the graph or results here -->
+                    </li>
+                </ul>
+            </ul>
+
+        </div>
+    </div>
+
+    <div class="container main-container">
+        <h1 class="text-center fw-bold">Investigation</h1>
+
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+
+            <blockquote class="blockquote mt-3 mb-3">
+                <p>Wellbeing is present when a person realizes their potential, is resilient in dealing with
+                    the normal stresses of their life, takes care of their physical wellbeing and has a sense of
+                    purpose,
+                    connection and belonging to a wider community. It is a fluid way of being and needs nurturing
+                    throughout
+                    life.</p>
+                <footer class="blockquote-footer" style="float: right;">World Health Organisation</footer>
+            </blockquote>
+            <br>
+            <p>Some ideas I debated using were a movement Tracking based game, a system to monitor and grow your plants
+                and a run tracker. After some consideration I settled on my idea, a system which can transform your dumb
+                basketball hoop into a smart one. It does this by using a sensor array to track how many shots you make
+                and miss and then display it to the end user. Exercise is not only shown to boost physical health, but
+                mental health too, overall improving user wellbeing</p>
+            <p>The main element of my design was that the basketball hoop would show you your score and accuracy. I
+                wanted to research how some other solutions in other industries do it. Some standout companies I saw in
+                my research were <a href="https://huupe.com/">Huupe</a> and <a
+                    href="https://dribbleup.com/hp">dribbleup</a></p>
+
+            <p>
+                Huupe sell a smart basketball hoop, though this is similar to what I want it is a fully contained smart
+                basketball hoop, whereas I want a smaller system which can be deployed onto any hoop. The Huupe uses a
+                sensor array mounted at the top of the hoop to detect shots. Though I think the system is really cool,
+                it costs $10,000, which makes it inaccessible for many, myself included.
+            </p>
+            <div class="text-center">
+                <img style="width: 50%;" class="mx-auto"
+                    src="https://cdn.shopify.com/oxygen-v2/21957/6653/13375/81020/build/_assets/howItWorksBanner-22C4UXLL.webp"
+                    alt="">
+                <p style="font-size: 0.8em;">A Huupe PRO</p>
+            </div>
+
+            <p>
+                The DribbleUp is a system which uses an iPad app and a brightly coloured ball with some key points on
+                it, to detect and track movement. It is largely for dribbling drills; however, I found the techniques
+                used for tracking interesting.
+            </p>
+            <p>My Target end user is anyone who wishes to improve their basketball shooting and physical health. I hope
+                to make this a quick to deploy and easy to use solution.</p>
+        </div>
+    </div>
+
+    <!-- Plan and Design-->
+    <div class="container main-container">
+        <h1 class="text-center fw-bold">Plan and Design</h1>
+
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+
+            <p>My initial design centred around ease of use for the user. The first design centred around using a camera
+                similar to Huupe. I created a prototype which tracked blobs of orange pixels (which is what a basketball
+                would be). I however determined that detecting whether it had gone in the hoop or just hit the backboard
+                would be difficult. It would require a large amount of compute and would be far less accurate. This led
+                to me pivoting to using a sensor array. The sensors I used were an accelerometer and a PIR (Passive
+                Infrared sensor).</p>
+            <p>
+                The accelerometer allows me to detect when a shot has been taken, this would be secured to the backboard
+                of a basketball hoop. The PIR which is placed under the rim detects when a basketball passes through the
+                rim, thus showing when someone scores. To display user data in real time, I opted to write a server
+                which serve a webpage and poll it’s API every few seconds to get updated shooting data. A user could
+                then access this on any of their devices from their smartwatch to their desktop. Additionally, this
+                server would manage datalogging of the user’s name, happiness and shooting metrics. This would allow me
+                to carry out data analysis later on. To manage the PIR, I opted to use an Arduino UNO, as it was what I
+                had on hand, and made testing far easier than if I were to use a Pi to control the sensor. I
+                additionally opted to use a Micro:Bit as the accelerometer as the school didn’t have any accelerometers
+                on hand and I did not want to order one when the Micro:Bit has an accelerometer in it. Both the Arduino
+                and Micro:Bit were then configured to send an update to the main computer over Serial via USB which
+                would act both as the data logger and the webserver. For the main computer I chose a Rock Pi 5 16GB. I
+                chose this as it has a good processor which can handle the multithreaded workload in addition to it
+                having the necessary ports. Initially however when performing testing I utilised a laptop to read the
+                serial interfaces.
+            </p>
+
+            <p>For programming, I utilized <a href="https://code.visualstudio.com/" target="_blank">VS Code</a> as well
+                as the
+                <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a>. The web server, written in
+                Python,
+                was developed using <a href="https://flask.palletsprojects.com/en/3.0.x/" target="_blank">Flask</a>
+                along with
+                <a href="https://flask-cors.readthedocs.io/en/latest/" target="_blank">Flask CORS</a>. The webpage to
+                display
+                the data was created using HTML and CSS for visuals, with basic JavaScript handling API requests to and
+                from
+                the web server.
+            </p>
+
+            <p>The Micro:Bit was programmed in MicroPython, utilizing the
+                <a href="https://makecode.microbit.org/" target="_blank">Micro:Bit MakeCode editor</a> for compiling. A
+                small
+                amount of Arduino code was written in C++. Source control for the project was managed using
+                <a href="https://github.com/" target="_blank">GitHub</a>.
+            </p>
+            <br>
+
+
+        </div>
+        <div class="text-center">
+            <h2>Sketched Design</h2>
+            <img src="./circuit.png" width="70%"><br><br>
+            <h2>Flowchart</h2><br>
+            <img src="./Flowchart for Plan and Design.png" class="mx-auto" style="width: 40%;"><br><br>
+        </div>
+    </div>
+
+    <!-- Create Log-->
+    <div class="container main-container">
+        <h1 class="text-center fw-bold">Create</h1>
+
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+            <h2>Create Log</h2>
+            <div class="progress-log-container">
+                <div class="progress-log">
+                    <div class="progress-item">📅<br> <strong>Week 1: </strong><br> Introduced to project brief. Looked
+                        at
+                        some possible ideas and datasets.</div>
+                    <div class="progress-item">📅<br> <strong>Week 2: </strong><br> Decided on an idea. Did research
+                        into parts,
+                        sketched some possible designs</div>
+                    <div class="progress-item">📅<br> <strong>Week 3: </strong><br> Began writing introduction and
+                        looking at
+                        sensors</div>
+                    <div class="progress-item">📅<br> <strong>Week 4: </strong><br> Partook in an LCCS Hackathon,
+                        focused on
+                        user centric design.</div>
+                    <div class="progress-item">📅<br> <strong>Week 5: </strong><br> Wrote the prototype for the Orange
+                        Blob
+                        Tracking</div>
+                    <div class="progress-item">📅<br> <strong>Week 6: </strong><br> Pivoted from Orange Blob Tracking to
+                        sensor
+                        array, further researched sensors</div>
+                    <div class="progress-item">📅<br> <strong>Week 7: </strong><br> Began writing the initial serial
+                        code. Also
+                        designed and created a prototype for the web interface</div>
+                    <div class="progress-item">📅<br> <strong>Week 8: </strong><br> Focused heavily on programming
+                        sensors.
+                        Found out the PIR was broken during testing. Ordered a new PIR</div>
+                    <div class="progress-item">📅<br> <strong>Week 9: </strong><br> Programmed web interface. Received
+                        new
+                        sensor. Created a version of the project ready for testing</div>
+                    <div class="progress-item">📅<br> <strong>Week 10:</strong><br>Tested the Project and began a full
+                        draft
+                        of the report. Filmed some of the video.</div>
+                    <div class="progress-item">📅<br> <strong>Week 11:</strong><br> Edited Video, finished drafting the
+                        report
+                        and made the website</div>
+                    <div class="progress-item">📅<br> <strong>Week 12:</strong><br> Made the website more user friendly
+                        and
+                        edited the report. Tidied and commented final codebase. Prepared the files to be submitted</div>
+                </div>
+            </div>
+            <h2 class="mt-3">A Code Walkthrough</h2><br>
+            <div class="bg-dark">
+                <code class="text-light p-3 m-3">
+                    <pre style="margin: 4%;">
+def read_microbit():
+    while True:
+        microbit_line = microbit_ser.readline().decode('utf-8').strip()
+        if "1" in microbit_line:
+            print("MICROBIT COMMS: ", microbit_line)
+            global shots, last_5_shots,score
+            shots += 1
+            current_score = score
+            time.sleep(4) # Wait 4 seconds
+            if current_score < score:
+                print("Shot Has been made")
+                last_5_shots.insert(0,{"result": "made"})
+            else:
+                print("Shot has been missed")
+                last_5_shots.insert(0,{"result": "missed"})
+            # Ensure we only deal with the last 5 shots
+            if len(last_5_shots) > 5:
+                list.pop()
+            </pre>
+            </code>
+            </div>
+            <br>
+            <p>This is arguably the most important piece of code in the project. Initially it reads and cleans data from
+                the serial port. It then checks if the Micro:Bit has been shaken, indicating whether or not a shot has
+                been taken. If the Micro:Bit has detected a shot, it waits 4 seconds to see if the score has increased,
+                if the score has increased this indicates that the user took a shot and scored it, however if it hasn’t
+                the user has missed a shot. The result is then added to the last 5 shot list and a 6th item is removed
+                from the list if it exists.</p>
+            <br>
+            <div class="bg-dark">
+                <code class="text-light p-3 m-3">
+                        <pre style="margin: 4%;">
+# Create threads for reading data
+arduino_thread = threading.Thread(target=read_arduino)
+microbit_thread = threading.Thread(target=read_microbit)
+
+# Start the threads
+arduino_thread.start()
+microbit_thread.start()
+
+# Runs the server on the main thread
+app.run()      
+                </pre>
+                </code>
+            </div><br>
+            <p>Another piece of code which I found interesting was the threading code. This is what allows me to have
+                multiple processes running in parallel in the one script. I was first required to break the project up
+                into several functions which were effectively their own scripts. I then assigned a thread to each of the
+                sensors, the <code>app.run()</code> was then run on the main thread. This was a key element which made
+                testing much
+                easier. </p>
+            <h2>The PIR sensor</h2>
+            <p>The primary issue I encountered was getting the PIR sensor to work. Initially the PIR sensor I was using
+                would go off constantly. I figured initially it was an issue with the code or the circuitry. After
+                trialling numerous code configurations from trialling different baud rates to different voltages and
+                even different pin types and pins just to ensure it wasn’t anything mundane, I was still receiving a
+                constant stream of detections. I then came to the conclusion that the sensor must be broken.</p>
+            <p>I ordered some new sensors on Thursday of Week 8 and they arrived Tuesday of Week 9. After a short amount
+                of testing on the same setup as before the new sensor worked! I was then able to go forward and finish
+                programming the rest of the program logic.</p>
+            <h2>CORS - Cross Origin Resource Sharing</h2>
+            <p>Another issue I encountered was that of Cross Origin Resource Sharing. Initially when handling requests
+                sent from the site to the server, I was receiving strange errors in regards to something called CSRF.
+                After some research I found that due to the nature of the requests I was sending to the server in
+                attempting to log data the server was blocking it to prevent Cross Site Request Forgery (CSRF) in which
+                a malicious user attempts to send bad data or commands to a site the user trusts. While this would
+                matter were this site to be available on the open internet, I opted to disable it using a package called
+                <a href="https://flask-cors.readthedocs.io/en/latest/">Flask CORS</a>. Cybersecurity was not a concern
+                for the
+                development of the project as the project will only be available on the intranet of whatever network the
+                user is on. So, I then enabled CORS on all routes of the server.
+            </p>
+        </div>
+    </div>
+
+    <div class="container main-container" id="mainbody">
+        <h1 class="text-center fw-bold">Evaluation</h1>
+        <br>
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+            <p>Overall, I thoroughly enjoyed working on this project. Here is an outline of how I met both the basic and
+                advanced requirements.</p>
+            <h3>Basic Requirements</h3>
+            <ul>
+                <li>Once set up, the system will run fully automated, tracking what the user does without any required
+                    input.</li>
+                <li>The system uses both digital and analogue inputs and outputs. Digital inputs are that of the user’s
+                    name and happiness into the server. While digital outputs are the live shot tracking data displayed
+                    on
+                    the website. Analogue inputs are from the sensors, both the accelerometer and the PIR. Analogue
+                    outputs
+                    can be found on the Micro:Bit when it beeps to indicate a shot has been taken.</li>
+                <li>User inputs are validated by the user’s website; it ensures that the user doesn’t put in an invalid
+                    name
+                    and ensures that they fill out all fields.</li>
+                <li>The User data is converted into a graph which is shown in the 2 what if questions below.</li>
+            </ul>
+            <h3>Advanced Requirements</h3>
+            <ul>
+                <li>The model I generated based on the user’s data is a Linear Regression based model which constructs a
+                    line of best fit to predict the user’s wellbeing based on the what if questions</li>
+                <li>The multiple descriptive features of wellbeing include duration which the user plays for, their mood
+                    before, mood after, and shooting accuracy.</li>
+            </ul>
+
+            <p>The project has met the general needs of the user, and the goals with which I set out initially when I
+                began
+                the project. The design is cheap and effective. The design is portable and easy to deploy which means
+                you
+                can turn any hoop into a smart basketball hoop. One failing for the user is my lack of consideration for
+                cybersecurity which would undoubtedly need to be amended if I were to build out this product.</p>
+
+            <p>To further improve or iterate on this project, I would like to add a few things.</p>
+            <ul>
+                <li>I would alter the device to be based off of a single custom fabricated microcontroller which has the
+                    accelerometer built in with an easily deployable and potentially magnetic PIR sensor to make it easy
+                    to
+                    deploy.</li>
+                <li>A similarly cheap and portable scoreboard that links with the device and will show the score to the
+                    users as they play a half-court game.</li>
+                <li>I would like to link it with another device so you could play full court games, and track the score
+                    and
+                    shot accuracy in real time.</li>
+                <li>I would add player tracking initially for one player so if they were performing a shooting drill
+                    they
+                    could see where they need to practice shooting from on the court.</li>
+                <li>I would ultimately like to add player tracking for all players on a court so the device could track
+                    each
+                    player's shot accuracy and movement during a game.</li>
+            </ul>
+
+        </div>
+    </div>
+
+    <footer class="text-center py-3 my-4 border-top">
+        <div class="d-flex flex-column align-items-center">
+            <h1 class="display-4 text-warning" onclick="
+                document.getElementById('top-of-page').scrollIntoView();"">🏀</h1>
+            <p class=" col-md-4 mb-0 text-muted">© Basketball Tracker 2024</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
