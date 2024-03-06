@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS  
 import serial
 import time
@@ -97,8 +97,18 @@ def store_happiness_after():
     last_5_shots = []
     return '👍'
 
+# Index and display take post requests as they are redirected after a form
+@app.route("/", methods=["POST", "GET"])
+def index():
+    return render_template("index.html")
 
+@app.route("/display", methods=["POST", "GET"])
+def display_live_data():
+    return render_template("display.html")
 
+@app.route("/ending", methods=["POST", "GET"])
+def ending():
+    return render_template("ending.html")
 
 if __name__ == '__main__':
     try:

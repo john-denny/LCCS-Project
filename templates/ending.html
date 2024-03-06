@@ -57,7 +57,7 @@
 <body>
     <h1>Post Shooting Happiness Request</h1>
     <div class="data-item">
-        <form action="./index.html" method="post" id="happiness_form">
+        <form action="{{ url_for('index') }}" method="post" id="happiness_form">
             <h4>How Happy Are You Currently?</h4>
             <input type="radio" id="Happy" name="current_mood" value="Happy" required>
             <label for="Happy">😃</label>
