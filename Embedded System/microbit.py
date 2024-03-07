@@ -12,4 +12,6 @@ def on_forever():
         serial.write_string("1\\n")
         basic.clear_screen()
         basic.pause(5000)
+        music.play(music.tone_playable(392, music.beat(BeatFraction.DOUBLE)),
+            music.PlaybackMode.UNTIL_DONE)
 basic.forever(on_forever)

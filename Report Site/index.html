@@ -70,12 +70,13 @@
         </div>
     </div>
     <div class="text-center container main-container">
-        <h1 class=" fw-bold">The Video</h1>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=OdA_ssHzvgKFMWII"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-
+        <h1 class="fw-bold">The Video</h1>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item " src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=OdA_ssHzvgKFMWII"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen style="width: 80%; height: 100%;"></iframe>
+        </div>
     </div>
     <div class="container main-container" id="mainbody">
         <h1 class="text-center fw-bold">Meeting the Brief</h1>
@@ -117,6 +118,8 @@
                         <li>What if the user shoots more, will their aim improve?</li>
                         <li>What if a user exercises, will it improve their mood before versus after?</li>
                     </ul>
+                    <p>Note: Due to difficulty of gathering large amounts of data the majority of data is simulated, see
+                        (simulation.py)</p>
                 </li>
             </ul>
 
@@ -134,14 +137,18 @@
                             the
                             users aim improves with each use. This is proven by the linear regression plot shown below.
                         </p>
-                        <!-- You can add the linear regression plot here -->
+                        <div class="text-center">
+                            <img src="./linear-regression.png" width="80%"><br><br>
+                        </div>
                     </li>
                     <li><strong>What if a user exercises, will it improve their mood before versus after?</strong>
                         <p>To model this I asked the users happiness before and after they exercised. I then graphed the
                             5
                             most common results of happiness before vs after. These can be seen below.</p>
-                        <!-- You can add the graph or results here -->
                     </li>
+                    <div class="text-center">
+                        <img src="./barchart.png" width="80%"><br><br>
+                    </div>
                 </ul>
             </ul>
 
@@ -193,7 +200,11 @@
                 used for tracking interesting.
             </p>
             <p>My Target end user is anyone who wishes to improve their basketball shooting and physical health. I hope
-                to make this a quick to deploy and easy to use solution.</p>
+                to make this a quick to deploy and easy to use solution. I sent a survey out to my school and received
+                33 responses. When questioned about excercises effect on mental health potential users overwhelmingly
+                agreed that excercise improves mental health. Additionally 63% of potential users say they would use the
+                product. This gave me insights to go forward with development.
+            </p>
         </div>
     </div>
 
@@ -263,7 +274,6 @@
     <div class="container main-container">
         <h1 class="text-center fw-bold">Create</h1>
 
-        <!-- Rest of your content goes here -->
         <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
             <h2>Create Log</h2>
             <div class="progress-log-container">
@@ -306,6 +316,20 @@
                         edited the report. Tidied and commented final codebase. Prepared the files to be submitted</div>
                 </div>
             </div>
+            <h2 class="mt-3">Testing</h2>
+            <p>
+                To unit test my design, I broke testing into the systems subsequent components. Initially, to test the
+                webserver, I ran the webserver and attempted to enter bad values, or no values into the fields. This
+                will
+                prompt the user to enter their credentials before they are allowed to continue. As for the server, I
+                updated
+                it during testing to run without the sensors attached and give an informative error message as opposed
+                to
+                just crashing. To test the sensors, I used them on a test bench, externally from the court, testing
+                ranges
+                and repeat radius and timings. Overall testing played a pivotal role in the development life cycle, as I
+                repeatedly tested the product during development
+            </p>
             <h2 class="mt-3">A Code Walkthrough</h2><br>
             <div class="bg-dark">
                 <code class="text-light p-3 m-3">
@@ -442,6 +466,64 @@ app.run()
             </ul>
 
         </div>
+    </div>
+    <div class="container main-container" id="mainbody">
+        <h1 class="text-center fw-bold">Sources</h1>
+        <br>
+        <!-- Rest of your content goes here -->
+        <div style="padding-left: 10%; padding-right: 10%; font-size: 1.2em;">
+            <ul>
+                <li><a href="https://www.arduino.cc/en/Guide" target="_blank">Arduino Docs</a></li>
+                <li><a href="https://microbit.org/documentation/" target="_blank">Micro:Bit Documentation</a></li>
+                <li><a href="https://matplotlib.org/stable/users/index" target="_blank">MatPlotLib Documentation</a>
+                </li>
+                <li>Molnar, C. (2022). "Modeling Mindsets: The Many Cultures Of Learning From Data." Published Nov 2022.
+                </li>
+                <li><a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" target="_blank">Bootstrap
+                        Docs</a></li>
+                <li><a href="https://www.parallax.com/product/pir-sensor-with-led-signal/" target="_blank">PIR
+                        Datasheet</a></li>
+                <li><a href="https://stackoverflow.com/" target="_blank">StackOverFlow</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="containter align-items-center" style="width: 80%; padding-left: 20%; padding-top: 3%;">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">Section</th>
+                    <th scope="col">Word Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Meeting The Brief</th>
+                    <td>391</td>
+                </tr>
+                <tr>
+                    <th scope="row">Investigation</th>
+                    <td>372</td>
+                </tr>
+                <tr>
+                    <th scope="row">Plan & Design</th>
+                    <td>477</td>
+                </tr>
+                <tr>
+                    <th scope="row">Create</th>
+                    <td>873</td>
+                </tr>
+                <tr>
+                    <th scope="row">Evaluation</th>
+                    <td>447</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total</th>
+                    <th>2560</th>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <footer class="text-center py-3 my-4 border-top">

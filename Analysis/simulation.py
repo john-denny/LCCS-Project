@@ -1,7 +1,7 @@
 import random
 from datetime import timedelta, datetime
 
-fake_names = [
+simulated_names = [
     'Sean', 'Aoife', 'Cian', 'Saoirse', 'Niall', 'Ciara', 'Eoin', 'Roisin', 'Padraig', 'Siobhan',
     'Conor', 'Maeve', 'Fionn', 'Orla', 'Liam', 'Niamh', 'Cillian', 'Grainne', 'Darragh', 'Aoibhinn',
     'Ciaran', 'Fiona', 'Cathal', 'Mairead', 'Cormac', 'Deirdre', 'Odhran', 'Aisling', 'Ronan', 'Aine',
@@ -24,9 +24,9 @@ happy = ["Happy"] * 35 + ["OK"] * 25 + ["Sad"] * 10
 
 current_time = datetime.now()
 
-with open("fake.csv", "a") as fake_file:
+with open("data.csv", "a") as simulation_file:
     for _ in range(10000):
-        name = random.choice(fake_names)
+        name = random.choice(simulated_names)
 
         # Initialize user data if not present
         if name not in user_data:
@@ -51,4 +51,4 @@ with open("fake.csv", "a") as fake_file:
         end_time = start_time + timedelta(minutes=random.randint(3, 40), seconds=random.randint(0, 60))
 
         out_str = f"{name}, {happiness_before}, {start_time.strftime('%Y-%m-%d %H:%M')}, {happiness_after}, {shots_taken}, {shots_scored}, {end_time.strftime('%Y-%m-%d %H:%M')}\n"
-        fake_file.write(out_str)
+        simulation_file.write(out_str)

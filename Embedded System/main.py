@@ -12,7 +12,7 @@ score = shots = 0
 last_5_shots = []
 
 # Set the serial port and baud rate
-ARDUINO_SERIAL_PORT = 'COM6'
+ARDUINO_SERIAL_PORT = 'COM4'
 MICROBIT_SERIAL_PORT = 'COM7'
 MICROBIT_BAUD_RATE = 115200
 ARDUINO_BAUD_RATE = 9600
@@ -21,10 +21,26 @@ ARDUINO_BAUD_RATE = 9600
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+print("""
+            ________
+    o      |   __   |   Basketball
+      `_ O |  |__|  |   Tracker
+   ____/ | |___WW___|   LCCS 2024
+   __/   /     ||       
+               ||
+               ||
+_______________||________________
+""")
 
-# Open the serial port
-arduino_ser = serial.Serial(ARDUINO_SERIAL_PORT, ARDUINO_BAUD_RATE, timeout=1)
-microbit_ser = serial.Serial(MICROBIT_SERIAL_PORT, MICROBIT_BAUD_RATE, timeout=1)
+# Initialise sensors
+sensorless_mode = True
+try:
+    arduino_ser = serial.Serial(ARDUINO_SERIAL_PORT, ARDUINO_BAUD_RATE, timeout=1)
+    microbit_ser = serial.Serial(MICROBIT_SERIAL_PORT, MICROBIT_BAUD_RATE, timeout=1)
+    sensorless_mode = False
+except serial.serialutil.SerialException:
+    print("SENSOR ISSUE | The Sensors have not been attached or assigned correctly.")
+    print("Running in sensorless mode\n\n")
 
 
 def read_arduino():
@@ -112,16 +128,18 @@ def ending():
 
 if __name__ == '__main__':
     try:
-        # Create threads for reading data
-        arduino_thread = threading.Thread(target=read_arduino)
-        microbit_thread = threading.Thread(target=read_microbit)
+        
+        if sensorless_mode != True:
+            # Create threads for reading data
+            arduino_thread = threading.Thread(target=read_arduino)
+            microbit_thread = threading.Thread(target=read_microbit)
 
-        # Start the threads
-        arduino_thread.start()
-        microbit_thread.start()
+            # Start the threads
+            arduino_thread.start()
+            microbit_thread.start()
 
         # Runs the server on the main thread
-        app.run()
+        app.run(host="0.0.0.0", port=80)
 
     except KeyboardInterrupt:
         print(f"Shots taken: {shots} \nMade: {score}")
