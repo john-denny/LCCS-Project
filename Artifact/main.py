@@ -12,7 +12,7 @@ score = shots = 0
 last_5_shots = []
 
 # Set the serial port and baud rate
-ARDUINO_SERIAL_PORT = 'COM4'
+ARDUINO_SERIAL_PORT = 'COM6'
 MICROBIT_SERIAL_PORT = 'COM7'
 MICROBIT_BAUD_RATE = 115200
 ARDUINO_BAUD_RATE = 9600
