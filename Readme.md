@@ -1,6 +1,7 @@
+# My Project for Leaving Cert Computer Science 2024
+It received a H1, The contents here are as they were submitted, with the exception of the video, which I included in the original zip, but ommitted here. (You can find a link to the video on youtube in index.html)
+
 ## File Names
-
-
 
 ### Artifact
 - Arduino Code/ - Arduino code written in C++
