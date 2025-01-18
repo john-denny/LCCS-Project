@@ -1,4 +1,6 @@
 # My Project for Leaving Cert Computer Science 2024
+I built a smart basketball hoop using an Arduino, Microbit and Raspberry Pi. It used an IR Sensor and the accelerometer in the microbit to track shot completion percentage. There is also a quiz about mental health built in to fulfill the requirements.
+
 It received a H1, The contents here are as they were submitted, with the exception of the video, which I included in the original zip, but ommitted here. (You can find a link to the video on youtube in index.html)
 
 ## File Names
